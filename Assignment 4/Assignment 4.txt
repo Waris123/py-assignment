@@ -1,0 +1,170 @@
+"""Question1:
+
+Use a dictionary to store information about a person you know. Store their first name, last name, age, and the city in which 
+they live. You should have keys such as first_name, last_name, age, and city. Print each piece of information stored in 
+your dictionary. Add a new key value pair about qualification then update the qualification value to high academic level 
+then delete it.
+
+"""
+# Task 1 (Print each piece of information stored in your dictionary)
+
+
+person_info = { 
+                    "first name": "Zia", 
+                    "lastname": "Rehman", 
+                    "age": "30", 
+                    "city": "Nawabshah"
+              }
+
+print(person_info);
+
+
+
+# Task 2 (Add a new key value pair about qualification then update the qualification value to high academic level)
+
+
+person_info = { 
+                    "first name": "Zia", 
+                    "lastname": "Rehman", 
+                    "age": "30", 
+                    "city": "Nawabshah"
+              }
+
+
+person_info["qualification"] = "MSCS"
+
+print(person_info);
+
+
+
+
+# Task 3 (Add a new key value pair about qualification then update the qualification value to high academic level then delete it.)
+
+person_info = { 
+                    "first name": "Zia", 
+                    "lastname": "Rehman", 
+                    "age": "30", 
+                    "city": "Nawabshah"
+              }
+
+
+person_info["qualification"] = "MSCS"
+
+print(person_info);
+
+del person_info["qualification"]
+
+print(person_info);
+
+
+
+
+
+
+"""
+Question2:
+Make a dictionary called cities. Use the names of three cities as keys in your dictionary. 
+Create a dictionary of information about each city and include the country that the city is in, 
+its approximate population, and one fact about that city. The keys for each city’s dictionary should be something 
+like country, population, and fact. Print the name of each city and all of the information you have stored about it.
+
+"""
+
+
+
+cities = {
+    "Karachi" : {
+        "country"    : "Pakistan" ,
+        "population" :  400000,
+        "fact"       : "The City of Light"},
+    
+    "Paris": {
+        "country"    : "France" ,
+        "population" : 199000,
+        "fact"       : "It's a beautiful place !"},
+    
+    "Banglore"    : {
+        "country"    : "India" ,
+        "population" : 145000,
+        "fact"       : "It is technology hub !"}
+}
+
+
+
+for key, value in cities.items():
+    print(cities[key])
+	
+	
+	
+	
+	"""
+Question3:
+A movie theater charges different ticket prices depending on a person’s age. If a person is under the age of 3, 
+the ticket is free; if they are between 3 and 12, the ticket is $10; and if they are over age 12, 
+the ticket is $15. Write a loop in which you ask users their age, and then tell them the cost of their movie ticket.
+"""
+
+
+flag = True
+while flag:
+    age = input("\nEnter your age or 'q' to stop asking :")
+    
+    if age.lower() == 'q':
+        flag = False
+    else:
+        int_age = int(age)
+        if int_age < 3:
+            print("Your ticket is free !")
+        elif int_age >=3 and int_age <=12:
+            print("Your ticket is $10 !")
+        elif int_age > 12:
+            print("Your ticket is $15 !")
+			
+"""
+Question4:
+Write a function called favorite_book() that accepts one parameter, title. The function should print a message,
+such as One of my favorite books is Alice in Wonderland. Call the function, making sure to include a book title as an 
+argument in the function call.
+
+"""
+
+
+def favorite_book(title):
+    print("best book for harry potter fans is ", title)
+    
+    
+    
+title = "Harry Potter and the Philosopher's Stone"
+favorite_book(title)
+
+title = "Harry Potter and the Deathly Hallows"
+favorite_book(title)
+    
+"""
+Question5:
+Guess the number game
+Write a program which randomly generate a number between 1 to 30 and ask the user in input field to guess the correct number.
+Give three chances to user guess the number and also give hint to user if hidden number is greater or smaller than the number 
+he given to input field.
+"""
+
+import random as rd
+i = 3
+while i > 0:
+    correct_num = rd.randint(1,30)
+    user_num = int(input(f"\n\tYou have {i} chances to guess the hidden number (from 1 to 30): "))
+    
+    if user_num == correct_num:
+        print("\t***Congrats ! Correct Guess, You Won*** :)")
+        break
+    elif user_num > correct_num:
+        print("\tYour guess is greater than the hidden number !")
+        i -= 1
+    elif user_num < correct_num:
+        print("\tYour guess is less than the hidden number !")
+        i-=1
+    elif user_num < 1 or user_num > 30:
+        print("\tPlease enter number in range 1 to 30 !")
+        
+if i == 0:
+    print(f"\n\tYou Lost ! :(  Hidden Number was {correct_num}")
